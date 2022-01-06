@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'transaction.dart';
 
@@ -44,26 +46,32 @@ class MyHomePage extends StatelessWidget {
             Column(
               children: transactions.map((e) {
                 return Card(
-                  child: Container(
-                    child: Row(
-                      children: [
-                        Container(
-                          child: Text(
-                            "\$" + e.amount.toString(),
+                  child: Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          horizontal: 15,
+                          vertical: 10,
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 2,
                           ),
                         ),
-                        Column(
-                          children: [
-                            Text("Title: " + e.title),
-                            Text("Date: " + e.date.toString()),
-                          ],
+                        padding: EdgeInsets.all(10),
+                        child: Text(
+                          "\$" + e.amount.toString(),
                         ),
-                        RaisedButton(
-                          onPressed: null,
-                          child: Text("Delete"),
-                        )
-                      ],
-                    ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Title: " + e.title),
+                          Text("Date: " + e.date.toString()),
+                        ],
+                      ),
+                    ],
                   ),
                 );
               }).toList(),
