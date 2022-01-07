@@ -5,6 +5,16 @@ class NewTransaction extends StatelessWidget {
   NewTransaction(this.userCallBackFunction);
   final titleController = TextEditingController();
   final amountController = TextEditingController();
+
+  void _SubmitData() {
+    final enteredTitle = titleController.text;
+    final enteredAmount = double.parse(amountController.text);
+
+    if (amountController.text.isEmpty || enteredTitle.isEmpty) return;
+
+    userCallBackFunction(enteredTitle, enteredAmount);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -17,16 +27,16 @@ class NewTransaction extends StatelessWidget {
             TextField(
               decoration: InputDecoration(labelText: 'Title'),
               controller: titleController,
+              onSubmitted: (_) => _SubmitData(),
             ),
             TextField(
               decoration: InputDecoration(labelText: 'Amount'),
               controller: amountController,
+              keyboardType: TextInputType.number,
+              onSubmitted: (_) => _SubmitData(),
             ),
             FlatButton(
-              onPressed: () {
-                userCallBackFunction(
-                    titleController.text, double.parse(amountController.text));
-              },
+              onPressed: _SubmitData,
               child: Text('Add Transaction'),
               textColor: Colors.purple,
             )
