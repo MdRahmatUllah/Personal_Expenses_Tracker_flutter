@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'new_transactions.dart';
+import './widgets/user_transaction.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -26,36 +26,13 @@ class _MyHomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            //width: double.infinity,
             child: Card(
               color: Colors.orange,
               child: Text("Chart!"),
               elevation: 5,
             ),
           ),
-          Card(
-            elevation: 5,
-            child: Container(
-              padding: EdgeInsets.all(10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  TextField(
-                    decoration: InputDecoration(labelText: 'Title'),
-                  ),
-                  TextField(
-                    decoration: InputDecoration(labelText: 'Amount'),
-                  ),
-                  FlatButton(
-                    onPressed: () {},
-                    child: Text('Add Transaction'),
-                    textColor: Colors.purple,
-                  )
-                ],
-              ),
-            ),
-          ),
-          NewTransactions(),
+          UserTransactions(),
         ],
       ),
     );
