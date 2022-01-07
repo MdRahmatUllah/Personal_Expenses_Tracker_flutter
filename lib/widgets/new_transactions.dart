@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class NewTransaction extends StatelessWidget {
   Function userCallBackFunction;
   NewTransaction(this.userCallBackFunction);
+
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
