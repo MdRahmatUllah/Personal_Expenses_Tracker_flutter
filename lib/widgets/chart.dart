@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_personal_expenses_tracker/models/transaction.dart';
+import 'package:flutter_personal_expenses_tracker/widgets/chart_bar.dart';
 import 'package:intl/intl.dart';
 
 class Chart extends StatelessWidget {
@@ -24,8 +25,14 @@ class Chart extends StatelessWidget {
       // print(totalAmount);
       return {
         'day': DateFormat.E().format(weekDay).substring(0, 1),
-        'amout': totalAmount
+        'amount': totalAmount
       };
+    });
+  }
+
+  double get totalSpending {
+    return groupTransactionValues.fold(0.0, (sum, element) {
+      return sum + element['amount'];
     });
   }
 
@@ -37,7 +44,12 @@ class Chart extends StatelessWidget {
       margin: EdgeInsets.all(20),
       child: Row(
         children: groupTransactionValues.map((e) {
-          return Text('${e['day']}: ${e['amount']}');
+          return ChartBar(
+              lebel: e['day'],
+              spendingAmount: e['amount'],
+              spendingPctOfTotal: totalSpending == 0
+                  ? 0.0
+                  : (e['amount'] as double) / totalSpending);
         }).toList(),
       ),
     );
