@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-class NewTransaction extends StatelessWidget {
+class NewTransaction extends StatefulWidget {
   Function userCallBackFunction;
   NewTransaction(this.userCallBackFunction);
 
+  @override
+  State<NewTransaction> createState() => _NewTransactionState();
+}
+
+class _NewTransactionState extends State<NewTransaction> {
   final titleController = TextEditingController();
+
   final amountController = TextEditingController();
 
   void _SubmitData() {
@@ -13,7 +20,8 @@ class NewTransaction extends StatelessWidget {
 
     if (amountController.text.isEmpty || enteredTitle.isEmpty) return;
 
-    userCallBackFunction(enteredTitle, enteredAmount);
+    widget.userCallBackFunction(enteredTitle, enteredAmount);
+    Navigator.of(context).pop();
   }
 
   @override
