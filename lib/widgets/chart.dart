@@ -12,7 +12,7 @@ class Chart extends StatelessWidget {
       final weekDay = DateTime.now().subtract(
         Duration(days: index),
       );
-      double totalAmount;
+      double totalAmount = 0;
       for (int i = 0; i < recentTransactions.length; i++) {
         if (recentTransactions[i].date.day == weekDay.day &&
             recentTransactions[i].date.month == weekDay.month &&
@@ -20,19 +20,22 @@ class Chart extends StatelessWidget {
           totalAmount += recentTransactions[i].amount;
         }
       }
-      print(DateFormat.E(weekDay));
-      print(totalAmount);
-      return {'day': DateFormat.E(weekDay), 'amout': totalAmount};
+      // print(DateFormat.E().format(weekDay));
+      // print(totalAmount);
+      return {'day': DateFormat.E().format(weekDay), 'amout': totalAmount};
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    print(groupTransactionValues);
     return Card(
       elevation: 6,
       margin: EdgeInsets.all(20),
       child: Row(
-        children: [],
+        children: [
+          Text("data"),
+        ],
       ),
     );
   }
