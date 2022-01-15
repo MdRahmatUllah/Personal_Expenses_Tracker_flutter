@@ -18,10 +18,16 @@ class _NewTransactionState extends State<NewTransaction> {
   void _SubmitData() {
     final enteredTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);
+    DateTime enteredDate = selectDate;
+    if (amountController.text.isEmpty ||
+        enteredTitle.isEmpty ||
+        enteredDate == null) return;
 
-    if (amountController.text.isEmpty || enteredTitle.isEmpty) return;
-
-    widget.userCallBackFunction(enteredTitle, enteredAmount);
+    widget.userCallBackFunction(
+      enteredTitle,
+      enteredAmount,
+      enteredDate,
+    );
     Navigator.of(context).pop();
   }
 
