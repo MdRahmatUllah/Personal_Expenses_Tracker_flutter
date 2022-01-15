@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 
 class NewTransaction extends StatefulWidget {
   Function userCallBackFunction;
@@ -11,8 +12,8 @@ class NewTransaction extends StatefulWidget {
 
 class _NewTransactionState extends State<NewTransaction> {
   final titleController = TextEditingController();
-
   final amountController = TextEditingController();
+  DateTime selectDate;
 
   void _SubmitData() {
     final enteredTitle = titleController.text;
@@ -30,7 +31,14 @@ class _NewTransactionState extends State<NewTransaction> {
       initialDate: DateTime.now(),
       firstDate: DateTime(2019),
       lastDate: DateTime.now(),
-    );
+    ).then((pickedDate) {
+      if (pickedDate == null) {
+        return;
+      }
+      setState(() {
+        selectDate = pickedDate;
+      });
+    });
   }
 
   @override
@@ -57,7 +65,13 @@ class _NewTransactionState extends State<NewTransaction> {
               height: 70,
               child: Row(
                 children: [
-                  Text('No Date Chosen!'),
+                  Expanded(
+                    child: Text(
+                      selectDate == null
+                          ? 'No Date Chosen!'
+                          : 'Picked Date: ${DateFormat.yMEd().format(selectDate)}',
+                    ),
+                  ),
                   FlatButton(
                       textColor: Theme.of(context).primaryColor,
                       onPressed: _presentDatePicker,
