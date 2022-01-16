@@ -1,6 +1,6 @@
-# flutter_personal_expenses_tracker
+# Flutter App: Personal Expense Tracker
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/QaiP80f56ig/sddefault.jpg)](https://youtu.be/QaiP80f56ig)
+# Demo Video for This app
 
 [![Watch the video](https://img.youtube.com/vi/QaiP80f56ig/sddefault.jpg)](https://youtu.be/QaiP80f56ig)
 
