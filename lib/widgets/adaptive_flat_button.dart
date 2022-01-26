@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class AdaptiveFlatButton extends StatelessWidget {
-  Function handler;
+  final Function handler;
   final String text;
   AdaptiveFlatButton(this.text, this.handler);
   @override

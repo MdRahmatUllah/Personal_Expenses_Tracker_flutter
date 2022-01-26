@@ -37,7 +37,7 @@ class TransactionList extends StatelessWidget {
             itemBuilder: (ctx, index) {
               return Card(
                 elevation: 5,
-                margin: EdgeInsets.symmetric(
+                margin: const EdgeInsets.symmetric(
                   vertical: 8,
                   horizontal: 5,
                 ),
@@ -45,7 +45,7 @@ class TransactionList extends StatelessWidget {
                   leading: CircleAvatar(
                     radius: 30,
                     child: Padding(
-                      padding: EdgeInsets.all(6),
+                      padding: const EdgeInsets.all(6),
                       child: FittedBox(
                           child: Text('\$${transactions[index].amount}')),
                     ),
@@ -62,10 +62,10 @@ class TransactionList extends StatelessWidget {
                           textColor: Theme.of(context).errorColor,
                           onPressed: () =>
                               deleteCallback(transactions[index].id),
-                          icon: Icon(Icons.delete),
-                          label: Text("Delete"))
+                          icon: const Icon(Icons.delete),
+                          label: const Text("Delete"))
                       : IconButton(
-                          icon: Icon(Icons.delete),
+                          icon: const Icon(Icons.delete),
                           color: Theme.of(context).errorColor,
                           onPressed: () =>
                               deleteCallback(transactions[index].id),
