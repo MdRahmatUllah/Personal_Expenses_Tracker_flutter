@@ -1,14 +1,13 @@
-import 'dart:io';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:intl/intl.dart';
+// ignore_for_file: deprecated_member_use, sized_box_for_whitespace
 
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'adaptive_flat_button.dart';
 
+// ignore: must_be_immutable
 class NewTransaction extends StatefulWidget {
   Function userCallBackFunction;
-  NewTransaction(this.userCallBackFunction);
+  NewTransaction(this.userCallBackFunction, {Key key}) : super(key: key);
 
   @override
   State<NewTransaction> createState() => _NewTransactionState();
@@ -19,6 +18,7 @@ class _NewTransactionState extends State<NewTransaction> {
   final amountController = TextEditingController();
   DateTime selectDate;
 
+  // ignore: non_constant_identifier_names
   void _SubmitData() {
     final enteredTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);

@@ -6,7 +6,8 @@ import 'package:intl/intl.dart';
 class Chart extends StatelessWidget {
   final List<Transaction> recentTransactions;
 
-  Chart(this.recentTransactions);
+  // ignore: use_key_in_widget_constructors
+  const Chart(this.recentTransactions);
 
   List<Map<String, Object>> get groupTransactionValues {
     return List.generate(7, (index) {

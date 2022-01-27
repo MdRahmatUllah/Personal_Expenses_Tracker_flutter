@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 
 class ChartBar extends StatelessWidget {
@@ -5,7 +7,8 @@ class ChartBar extends StatelessWidget {
   final double spendingAmount;
   final double spendingPctOfTotal;
 
-  ChartBar({this.lebel, this.spendingAmount, this.spendingPctOfTotal});
+  // ignore: use_key_in_widget_constructors
+  const ChartBar({this.lebel, this.spendingAmount, this.spendingPctOfTotal});
 
   @override
   Widget build(BuildContext context) {

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_personal_expenses_tracker/models/transaction.dart';
@@ -18,10 +20,9 @@ class TransactionItem extends StatefulWidget {
 }
 
 class _TransactionItemState extends State<TransactionItem> {
-  @override
   Color _bgColor;
+  @override
   void initState() {
-    // TODO: implement initState
     const List<Color> _bgColors = [
       Colors.red,
       Colors.black,
@@ -50,7 +51,7 @@ class _TransactionItemState extends State<TransactionItem> {
             child: FittedBox(
                 child: Text(
               '\$${widget.transaction.amount}',
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             )),
           ),
         ),

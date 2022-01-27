@@ -1,13 +1,14 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import '../models/transaction.dart';
-import 'package:intl/intl.dart';
-
 import 'TransactionItem.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
   final Function deleteCallback;
-  TransactionList(this.transactions, this.deleteCallback);
+  // ignore: use_key_in_widget_constructors
+  const TransactionList(this.transactions, this.deleteCallback);
   @override
   Widget build(BuildContext context) {
     return transactions.isEmpty
